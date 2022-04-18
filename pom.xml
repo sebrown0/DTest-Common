@@ -6,7 +6,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.dakar.automated_testing</groupId>
   <artifactId>DTestCommon</artifactId>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
   
   <properties>
      <maven.compiler.source>15</maven.compiler.source>
