@@ -34,5 +34,6 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/SteveBrown/eclipse-workspace/2021/com/jars/ContextManager_Fat.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

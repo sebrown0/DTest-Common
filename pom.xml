@@ -6,7 +6,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.dakar.automated_testing</groupId>
   <artifactId>DTestCommon</artifactId>
-  <version>1.2.0</version>
+  <version>1.2.1</version>
   
   <properties>
      <maven.compiler.source>15</maven.compiler.source>
@@ -32,11 +32,16 @@
   </build>
   
   <dependencies>
+    <!-- DAKAR - START -->
+    <!-- 
     <dependency>
       <groupId>com.dakar.automated_testing</groupId>
       <artifactId>ContextManager</artifactId>
       <version>1.0.0</version>
     </dependency>
+     -->
+    <!-- DAKAR - END -->
+    
     <dependency>
       <groupId>org.apache.logging.log4j</groupId>
       <artifactId>log4j-slf4j18-impl</artifactId>
