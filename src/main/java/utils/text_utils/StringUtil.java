@@ -22,4 +22,11 @@ public class StringUtil {
 			return s;
 		}		
 	}
+	public static String firstCharToLower(String s) {
+		if(s != null && s.length() > 1) {
+			return  s.substring(0, 1).toLowerCase() + s.substring(1, s.length());
+		}else {
+			return s;
+		}		
+	}
 }
