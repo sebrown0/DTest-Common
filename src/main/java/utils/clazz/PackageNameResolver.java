@@ -3,7 +3,8 @@
  */
 package utils.clazz;
 
-import utils.text_utils.StringUtils;
+import static utils.text_utils.StringUtils.replaceSpacesWithUnderScore;
+import static java.lang.Character.isUpperCase;
 
 /**
  * @author SteveBrown
@@ -17,18 +18,23 @@ import utils.text_utils.StringUtils;
  */
 public class PackageNameResolver {
 	private String pckge;
+	private String updatedPckge = "";
 	
 	public PackageNameResolver(String pckge) {
 		this.pckge = pckge;
 	}
 
 	public String getPackageInCorrectFormat() {		
-		if(potentialPackage() && withSpaces()) {			
-			correctPackage();
+		if(potentialPackage()) {
+			if(withSpaces()) {			
+				correctSpaces();
+			}else if(inPascalCase()) {
+				useUpdatedPackage();
+			}
 		}		
 		return pckge.toLowerCase();
 	}
-
+	
 	private boolean potentialPackage() {
 		return pckge != null && !pckge.equals("");
 	}
@@ -37,8 +43,31 @@ public class PackageNameResolver {
 		return pckge.contains(" ");
 	}
 	
-	private void correctPackage() {
-		pckge = StringUtils.replaceSpacesWithUnderScore(pckge);
+	private void correctSpaces() {
+		pckge = replaceSpacesWithUnderScore(pckge);
 	}
 	
+	private boolean inPascalCase() {
+		boolean res = false;
+		char c;
+		for(int idx = 0; idx < pckge.length(); idx++) {
+			c = pckge.charAt(idx);
+			if(isUpperCase(c) && notFirstChar(idx)) {
+				updatedPckge += "_" + c;
+				res = true;
+			}else {
+				updatedPckge += c;
+			}
+		}
+		return res;
+	}
+	
+	private boolean notFirstChar(int idx) {
+		return idx > 0;
+	}
+	
+	private void useUpdatedPackage() {
+		pckge = updatedPckge;
+	}
+
 }
