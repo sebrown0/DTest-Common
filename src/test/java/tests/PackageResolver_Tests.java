@@ -9,6 +9,12 @@ import utils.clazz.PackageNameResolver;
 class PackageResolver_Tests {
 
 	@Test
+	void test_package_withUnderScores_() {
+		PackageNameResolver resolver = new PackageNameResolver("Employee_Others");
+		assertEquals("employee_others", resolver.getPackageInCorrectFormat());
+	}
+	
+	@Test
 	void test_package_withUnderScores() {
 		PackageNameResolver resolver = new PackageNameResolver("a_package");
 		assertEquals("a_package", resolver.getPackageInCorrectFormat());

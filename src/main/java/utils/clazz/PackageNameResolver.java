@@ -52,7 +52,7 @@ public class PackageNameResolver {
 		char c;
 		for(int idx = 0; idx < pckge.length(); idx++) {
 			c = pckge.charAt(idx);
-			if(isUpperCase(c) && notFirstChar(idx)) {
+			if(isUpperCase(c) && notFirstChar(idx) && lastWasNotUnderScore()) {
 				updatedPckge += "_" + c;
 				res = true;
 			}else {
@@ -64,6 +64,11 @@ public class PackageNameResolver {
 	
 	private boolean notFirstChar(int idx) {
 		return idx > 0;
+	}
+	
+	private boolean lastWasNotUnderScore() { 
+		char last = updatedPckge.charAt(updatedPckge.length()-1);
+		return last != '_';
 	}
 	
 	private void useUpdatedPackage() {
